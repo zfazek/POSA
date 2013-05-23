@@ -2,6 +2,8 @@
 #include <thread>
 #include <mutex>
 
+// g++ -std=c++0x -lpthread ping_pong.cc -o ping_pong
+
 using namespace std;
 
 mutex m;
