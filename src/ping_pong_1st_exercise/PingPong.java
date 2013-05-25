@@ -49,26 +49,26 @@ public class PingPong {
 
 class Monitor {
 
-	private boolean isPingTurn = true;
+	private boolean pingTurn = true;
 
 	public synchronized void printPing() {
-		while (! isPingTurn) {
+		while (! pingTurn) {
 			try {
 				wait();
 			} catch (InterruptedException e) {}
 		}
-		isPingTurn = false;
+		pingTurn = false;
 		System.out.println("Ping!");
 		notifyAll();
 	}
 
 	public synchronized void printPong() {
-		while (isPingTurn) {
+		while (pingTurn) {
 			try {
 				wait();
 			} catch (InterruptedException e) {}
 		}
-		isPingTurn = true;
+		pingTurn = true;
 		System.out.println("Pong!");
 		notifyAll();
 	}
